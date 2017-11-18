@@ -22,11 +22,11 @@ namespace Assignment_2
             foreach (var acct in accountList.GenerateAccounts())
             {
                 AccountListBox.Items.Add(acct.Nickname);
-                if (Session[$"{acct.Nickname}Nickname"] == null)
+                if (Session[$"{acct.Nickname}Nickname"] == null)  //Make sure a list item is selectd
                 {
                     Session[$"{acct.Nickname}Nickname"] = acct.Nickname;
                     Session[$"{acct.Nickname}Balance"] = acct.Balance;
-                    Session[$"{acct.Nickname}Type"] = acct.Type;
+                    Session[$"{acct.Nickname}Type"] = acct.Type;  // Find all objects associated with item
                     Session[acct.Nickname] = acct;
                     Session[$"{acct.Nickname}FullName"] = customer.FullName;
                     Session[$"{acct.Nickname}FullAddress"] = customer.FullAddress;
@@ -35,7 +35,7 @@ namespace Assignment_2
             }
             
 
-            NameLabel.Text = "Welcome " + customer.FullName;
+            NameLabel.Text = "Welcome " + customer.FullName;  //add Name to the label
             
            
          
@@ -43,13 +43,13 @@ namespace Assignment_2
 
         protected void DetailsButton_Click(object sender, EventArgs e)
         {
-            Server.Transfer("AccountPages/AccountDetails.aspx");
+            Server.Transfer("AccountPages/AccountDetails.aspx");  //Once button is clicked send to new page
         }
 
         protected void AccountListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var pi = sender.GetType().GetProperty("Text");
-            var temp = (string)(pi.GetValue(sender, null));
+            var temp = (string)(pi.GetValue(sender, null));  //find selected list item
             Session["SelectedAccount"] = temp;
         }
     }

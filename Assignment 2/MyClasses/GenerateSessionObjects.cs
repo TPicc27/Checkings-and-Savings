@@ -16,7 +16,7 @@ namespace Assignment_2.MyClasses
         public List<Account> GenerateAccounts()
         {           
             Accounts.Add(new Account("Checking", 26970, "My Chk1"));
-            Accounts.Add(new Account("Checking", 34586, "My Chk2"));
+            Accounts.Add(new Account("Checking", 34586, "My Chk2"));  //Adding new list items to account list
             Accounts.Add(new Account("Saving", 40003, "My Sav1"));
            
 
@@ -26,7 +26,7 @@ namespace Assignment_2.MyClasses
 
         public Customer GenerateCustomer()
         {
-           return new Customer("Tony Piccirilli", "1 Cardinal Way"); 
+           return new Customer("Tony Piccirilli", "1 Cardinal Way"); //Creating new customer object
         }
     }
 }

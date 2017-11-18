@@ -11,26 +11,26 @@ namespace Assignment_2.MyClasses
 {
     public class Account
     {
-        public string Type { get; set; }
-        public double Balance { get; set; }
-        public string Nickname { get; set; }
+        public string Type { get; set; }  //type property
+        public double Balance { get; set; }  //balance property
+        public string Nickname { get; set; } //nickname property
 
-        public Account(string _type, double _balance, string _nickname)
+        public Account(string _type, double _balance, string _nickname)  //Constructor
         {
             Type = _type;
             Balance = _balance;
             Nickname = _nickname;
         }
 
-        public bool hasLoanOffer()
+        public bool hasLoanOffer()  //method to make sure loan is accepted
         {
             if(Balance >= 15000)
             {
-                return true;
+                return true;  //true if balance is more than 15000
             }
             else
             {
-                return false;
+                return false;  //false if balance is more than 15000
             }
         }
 

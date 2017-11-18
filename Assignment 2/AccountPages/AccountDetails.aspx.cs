@@ -16,40 +16,40 @@ namespace Assignment_2.AccountPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var passedInNickname = Session["SelectedAccount"];
+            var passedInNickname = Session["SelectedAccount"];  //account selected
 
-            var sessionNickname = Session[$"{passedInNickname}Nickname"].ToString();
-            var sessionBalance = Session[$"{passedInNickname}Balance"].ToString();
+            var sessionNickname = Session[$"{passedInNickname}Nickname"].ToString();  
+            var sessionBalance = Session[$"{passedInNickname}Balance"].ToString();  //show details of account
             var sessionType = Session[$"{passedInNickname}Type"].ToString();
 
             AcctTypeLabel.Text = sessionType.ToString();
-            BalanceLabel.Text = sessionBalance.ToString();
+            BalanceLabel.Text = sessionBalance.ToString();  //place details of account in labels
             AccountNameLabel.Text = sessionNickname.ToString();
             
             var account = new Account(sessionType, double.Parse(sessionBalance), sessionNickname);
 
-            var hasLoanOffer = account.hasLoanOffer();
+            var hasLoanOffer = account.hasLoanOffer();  //add the method to the session
 
-            LoanLabel.Text = hasLoanOffer.ToString();
+            LoanLabel.Text = hasLoanOffer.ToString();  //place method result in label
 
-            AddressLabel.Text = Session[$"{passedInNickname}FullAddress"].ToString();
+            AddressLabel.Text = Session[$"{passedInNickname}FullAddress"].ToString();  // give address of customer
 
         }
 
         protected void WithdrawButton_Click(object sender, EventArgs e)
         {
-            if (double.Parse(WithdrawTB.Text) <= double.Parse(BalanceLabel.Text))
+            if (double.Parse(WithdrawTB.Text) <= double.Parse(BalanceLabel.Text))  //withdraw is less than balance
             {
-                var amount = WithdrawTB.Text;
+                var amount = WithdrawTB.Text; 
 
-                var passedInNickname = Session["SelectedAccount"];
+                var passedInNickname = Session["SelectedAccount"];  //find account from session
                 var sessionBalance = Session[$"{passedInNickname}Balance"].ToString();
 
-                var newbalance = double.Parse(sessionBalance) - double.Parse(amount);
+                var newbalance = double.Parse(sessionBalance) - double.Parse(amount);  //create new balance
 
-                BalanceLabel.Text = newbalance.ToString();
+                BalanceLabel.Text = newbalance.ToString();  //add new balance to label
 
-                Session[$"{passedInNickname}Balance"] = newbalance.ToString();
+                Session[$"{passedInNickname}Balance"] = newbalance.ToString();  //add new balance to session
                 WithdrawTB.Text = "";
             }
             else

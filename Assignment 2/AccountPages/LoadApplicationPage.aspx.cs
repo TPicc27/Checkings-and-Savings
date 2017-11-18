@@ -15,9 +15,9 @@ namespace Assignment_2.AccountPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var passedInNickname = Session["SelectedAccount"];
+            var passedInNickname = Session["SelectedAccount"];  //find account
 
-            YourNameLabel.Text = Session[$"{passedInNickname}FullName"].ToString();
+            YourNameLabel.Text = Session[$"{passedInNickname}FullName"].ToString();  //show customer name in label
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e)
@@ -26,11 +26,11 @@ namespace Assignment_2.AccountPages
             var sessionBalance = Session[$"{passedInNickname}Balance"].ToString();
             if(double.Parse(AgeTB.Text) >= 18 && double.Parse(sessionBalance) >= double.Parse(LoanTB.Text) && double.Parse(LoanTB.Text) < .5 * double.Parse(SalaryTB.Text))
             {
-                LoanApprovalLoan.Text = "Congrualations!! Your loan is approved.";
+                LoanApprovalLoan.Text = "Congrualations!! Your loan is approved.";  //if loan is approved
             }
             else
             {
-                LoanApprovalLoan.Text = "Your loan is not approved. Sorry!!";
+                LoanApprovalLoan.Text = "Your loan is not approved. Sorry!!";  //if loan is declined
             }
         }
     }

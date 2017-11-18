@@ -11,10 +11,10 @@ namespace Assignment_2.MyClasses
 {
     public class Customer
     {
-        public string FullName { get; }
-        public string FullAddress { get; }
+        public string FullName { get; }  //name property
+        public string FullAddress { get; } //address property
 
-        public Customer(string names, string address)
+        public Customer(string names, string address)  //constructor
         {
             FullName = names;
             FullAddress = address;
